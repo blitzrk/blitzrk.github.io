@@ -163,7 +163,7 @@ function match() {
 
 function main() {
     term=&quot;$1&quot;; shift
-    filter=&quot;${@:+${@:?:} head $@}&quot; # If extra args, use with head, else noop
+	filter=&quot;${@:+head} ${@:-tr &#39;&#39; &#39;&#39;}&quot; # If extra args, use with head, else noop
 
     match &quot;$term&quot; \
         | sort -snrk 1,1 \
