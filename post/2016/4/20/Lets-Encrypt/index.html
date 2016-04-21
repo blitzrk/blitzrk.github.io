@@ -1,82 +1,74 @@
 <!doctype html>
 <html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.4"><title>krieg.io</title><link rel="stylesheet" href="/css/bundle.css"><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/default.min.css"><link rel="icon" type="image/x-icon" href="/favicon.ico"><script src="/js/upgrade.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/highlight.min.js"></script><script>hljs.initHighlightingOnLoad();</script><script>upgradeToHTTPS();</script></head><body><div class="article">
 <div id="header">
-<h1>When Old Tools Rule</h1>
+<h1>Let’s Encrypt!</h1>
 <div class="details">
 <span class="author" id="author">Ben Krieger</span><br>
 <span class="email" id="email"><a href="mailto:blitzrk@gmail.com">blitzrk@gmail.com</a></span><br>
-<span id="revdate">2016-04-05</span>
+<span id="revdate">2016-04-20</span>
 </div>
 </div>
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Today there was a <a href="https://news.ycombinator.com/item?id=11430442">discussion on Hacker News</a>
-about using Vim as a commandline tool within Unix pipes. Of course this immediately
-appealed to me, because I’ve invested a lot of time becoming proficient in it and some
-days I just don’t want to try to remember if and how sed and Vim’s <code>s</code> command differ.
-But while I was initially looking for a bunch of new Vim tricks to add to my repertoire,
-instead the conversation diverged how Vim was derived from ed, how in many ways old
-tools like terminal text editors still have much to offer, and how this shouldn’t surprise
-us.</p>
+<p>As a preface to the upcoming series on how I built this blog and the generator
+underlying it, I’m going to share how I utilized <a href="https://letsencrypt.org/">
+Let’s Encrypt</a> to get a completely free SSL certificate and upgrade my blog
+to HTTPS. This blog is hosted on <a href="https://pages.github.com/">GitHub Pages</a>, so
+my method will work for any other project or personal page on Pages with a
+custom URL.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_warning_ramble">WARNING: Ramble</h2>
+<h2 id="_why_encrypt">Why Encrypt?</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>mass surveillance</p>
+</li>
+<li>
+<p>hackers</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_deploying_to_github_pages">Deploying to GitHub Pages</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>There is some research out there suggesting that by way of our social constructs of
-teaching and learning, for increasingly more of our lives, humans have become smarter.
-But have we really? Is Microsoft Word strictly better than Vim, because it was made later
-and thus probably by smarter individuals? Certainly no programmer would think so. Word
-is fine for its own set of constraints, but as such it will probably not be right for
-dealing with code or textual data very often.</p>
+<p>github.io pages are https</p>
 </div>
-<div class="paragraph">
-<p>Still, the idea that humans have gotten smarter has a certain appeal. Intuitively it
-makes sense. We went from algebra to calculus to quantum mechanics, didn’t we? And for
-years the brightest physicists and mathematicians debated quantum principles we now accept
-as fact. But the argument that since we can easily understand now what used to seem so
-difficult, so we must be smarter, is based on a false premise. While we like to imagine
-that Isaac Newton discovered calculus in a flash of inspiration, just as he supposedly
-(totally did not) &quot;discover&quot; gravity from an apple-related incident, instead he
-mundanely (or excitingly if you’re a mathematician) solved a problem by combining
-common knowledge from the field with a small leap of intuition and insight. Einstein and
-every other genius did the same thing, although some were able to make slightly larger
-small leaps and some have been portrayed in the media as having made larger leaps (for
-the last time, Mark, Stephen Hawking is very smart, but he is not the premier physicist
-of this era!).</p>
+<div class="sect2">
+<h3 id="_setup">Setup</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>how to deploy gh-pages and use CNAME</p>
+</li>
+<li>
+<p>namecheap</p>
+</li>
+</ol>
 </div>
-<div class="paragraph">
-<p>This brings us back to the HN discussion. So what is it that makes us feel so superior
-to ancient civilizations, although we still perform their plays, quote their philosophy,
-and look for advanced alien technology in their tombs? It’s tools. And this shouldn’t be
-surprising to any of us. After all, what makes us humans the masters of the animal
-kingdom? We not only use tools, but improve them and pass them on to future generations
-through teaching. So while we may feel smarter, let’s not forget that we are just
-standing on the backs of our ancestors - our ancestors who were just as smart as us.
-<em>Principia Mathematica</em> could not have been written by the ancient Greeks nor without
-them.</p>
 </div>
-<div class="paragraph">
-<p>I want to take a moment just to remind myself not to dismiss an idea, tool, or
-technique merely due to its age. So few ideas are truly subsumed by later ones, because
-there is a dimishing return to improving tools. Generally, new tools solve a new problem.
-Now, there is one big exception to this rule: revolutions. Revolutions, by their very
-definition, turn things on their heads. Then tools like the spreadsheet or slide rule
-are vastly improved by using the new technology (computers). So putting this all together,
-we know that people didn’t used to be stupid and unless there was a revolution recently,
-no one may have even tried to improve their tools, just based a tool for solving a new
-problem off of it. Therefore we can logically dispute the assumptions of all arguments
-like editors vs IDEs, commandline vs GUI, and ed vs vi. Neither newer nor older have
-an advantage and no two people can ever be solving the exact same problem the same way.</p>
 </div>
+</div>
+<div class="sect1">
+<h2 id="_kloudsec_for_github_pages">Kloudsec for GitHub Pages</h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p>If you thought that this post had neither a single argument nor single conclusion, you
-would be correct. But now I have proof that my blog generator pipeline is at least
-working basically.</p>
+<p>Thanks to Steven Goh: <a class="bare" href="https://kloudsec.com/github-pages/new">https://kloudsec.com/github-pages/new</a></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>pictures</p>
+</li>
+</ol>
 </div>
 </div>
 </div>
